@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<title>Todo List</title>
+<link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+    <div class="container">
+    <h2 class="title"> My Todo List</h2>
+    <div class="input-container">
+    <input type="text" id="taskInput"
+     placeholder="Add new task">
+<button onclick="addTask()">Add Task</button>
+
+<ul id="taskList">
+   <li>
+     <span onclick="toggleTask(event)">make breakfast</span>
+      <button class="delete" onclick="deleteTask(event)">Delete</button></li>
+
+      <li>
+        <span onclick="toggleTask(event)">make lunch</span>
+         <button class="delete" onclick="deleteTask(event)">Delete</button></li>
+
+         <li>
+          <span onclick="toggleTask(event)">make dinner</span>
+           <button class="delete" onclick="deleteTask(event)">Delete</button></li>
+</ul>
+</div>
+<script src="script.js" defer></script>
+  </body>
+</html> 
