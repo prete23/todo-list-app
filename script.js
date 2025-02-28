@@ -49,9 +49,9 @@ function saveTasks(){
 }
 
  function loadTasks(){
-  let saveTasks = JSON.parse(localStorage.getItem("tasks"));
-  if(saveTasks) { saveTasks = JSON.parse(localStorage.getItem("tasks")) }
-  catch (e) {
+  let savedTasks;
+  try { 
+  savedTasks = JSON.parse(localStorage.getItem("tasks"));                                                        } catch (e) {
   console.error("Error parsing tasks from localStorage", e);
   savedTasks = []; 
   }
