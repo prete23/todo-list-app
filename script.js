@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded",
    loadTasks);
 
 function addTask() {
-  let taskInput = 
+  const taskInput = 
   document.getElementById("taskInput");
-  let taskList = 
+  const taskList = 
   document.getElementById("taskList");
 
   if(taskInput.value.trim()!==""){
@@ -45,23 +45,32 @@ function saveTasks(){
        li.querySelector("span").classList.contains("completed")
     });
   });
-  localStorage.setItem("task",JSON.stringify(tasks));
+  localStorage.setItem("tasks",JSON.stringify(tasks));
 }
 
  function loadTasks(){
   let saveTasks = JSON.parse(localStorage.getItem("tasks"));
-  if(saveTasks) {
-    let taskList = document.getElement("li");
-    li.innerHTML =`
-    <span onclick="toggleTask(event)"class="${task.completed? 'completed':''}"> 
-    ${task.tex} </span>
-    <button class="delete" onclick"deleteTask(event)">Delete</button>
-    `;
-    taskList.appendChild(li);
-  };
+  if(saveTasks) { saveTasks = JSON.parse(localStorage.getItem("tasks")) }
+  catch (e) {
+  console.error("Error parsing tasks from localStorage", e);
+  savedTasks = []; 
   }
- 
+if (savedTasks) {
+  savedTasks.forEach(task => {
+    let li = document.createElement("li");
+    li.innerHTML = `
+    <span onclick="toggleTask(event)" 
+    class=${task.complete? 'completed' : '' } ">${task.text} }></span>
+    <button class="delete" onclick="deleteTask(event)">Delete</button>`;
+    document.getElementById("taskList").appendChild(li);
+  });
+}
+ }
 
+
+
+
+    
 
 
 
